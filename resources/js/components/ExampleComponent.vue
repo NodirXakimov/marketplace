@@ -2,6 +2,7 @@
     <div class="container-fluid">
         <main-header></main-header>
         <product-item></product-item>
+        <h3>{{ productName }}</h3>
     </div>
 </template>
 
@@ -12,7 +13,8 @@
     export default {
         data(){
             return {
-                number: 10
+                number: 10,
+                productName: ''
             }
         },
         components: {
@@ -27,7 +29,18 @@
             }
         },
         mounted() {
-            console.log('Component mounted.')
+            axios({
+                method:'get',
+                url: '/test',
+                data: {
+                    id:'/test'
+                }
+            }).then((data) => {
+                console.log(data.data);
+                this.productName = data.data[0].name;
+            }).catch(err => {
+                console.log(err);
+            })
         }
     }
 </script>

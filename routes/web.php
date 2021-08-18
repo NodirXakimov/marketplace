@@ -21,6 +21,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/api', function(){
-    return ['status' => 12];
-});
+Route::get('/test', [App\Http\Controllers\ProductController::class, 'index'])->name('test');
