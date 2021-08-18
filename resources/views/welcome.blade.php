@@ -20,8 +20,7 @@
             }
         </style>
     </head>
-    <body class="antialiased">
-        <h1>Vue in Laravel Project</h1>
+    <body>
         <div id="app">
             <example-component></example-component>
         </div>
