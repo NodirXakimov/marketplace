@@ -1855,6 +1855,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1945,6 +1946,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
 //
 //
 //
@@ -6482,7 +6486,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.product-card[data-v-398a8687] {\n    position: absolute;\n    width: 235px;\n    height: 483px;\n    left: 40px;\n    top: 100px;\n\n    background: #FFFFFF;\n    border: 1px solid #F2F2F2;\n    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.02), 0px 4px 10px rgba(0, 0, 0, 0.02);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.product-card[data-v-398a8687] {\n    position: static;\n    width: 235px;\n    height: 483px;\n    left: 40px;\n    top: 100px;\n\n    background: #FFFFFF;\n    border: 1px solid #F2F2F2;\n    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.02), 0px 4px 10px rgba(0, 0, 0, 0.02);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38071,6 +38075,8 @@ var render = function() {
       _vm._v(" "),
       _c("product-item"),
       _vm._v(" "),
+      _c("product-item"),
+      _vm._v(" "),
       _c("h3", [_vm._v(_vm._s(_vm.productName))])
     ],
     1
@@ -38214,6 +38220,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "product-card" }, [
+      _c("p", [_vm._v("Some new product")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Some new product")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Some new product")]),
+      _vm._v(" "),
       _c("p", [_vm._v("Some new product")])
     ])
   }

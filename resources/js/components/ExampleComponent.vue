@@ -2,6 +2,7 @@
     <div class="container-fluid">
         <main-header></main-header>
         <product-item></product-item>
+        <product-item></product-item>
         <h3>{{ productName }}</h3>
     </div>
 </template>

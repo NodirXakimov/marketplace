@@ -1,6 +1,9 @@
 <template>
     <div class="product-card">
         <p>Some new product</p>
+        <p>Some new product</p>
+        <p>Some new product</p>
+        <p>Some new product</p>
     </div>
 </template>
 <script>
@@ -10,7 +13,7 @@ export default {
 </script>
 <style scoped>
     .product-card {
-        position: absolute;
+        position: static;
         width: 235px;
         height: 483px;
         left: 40px;
