@@ -1,26 +1,29 @@
 <template>
-    <div class="product-card">
-        <p>Some new product</p>
-        <p>Some new product</p>
-        <p>Some new product</p>
-        <p>Some new product</p>
+    <div class="card d-inline-block m-2 text-center" style="width: 12rem;">
+        <div class="card-header">
+            <p class="text-primary">{{ name }}</p>
+        </div>
+        <div class="card-body">
+            <p class="text-danger">
+                {{ price }} $
+            </p>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-sm btn-outline-primary"
+                @click="addToCartClicked"
+            >
+                Add to cart
+            </button>
+        </div>
     </div>
 </template>
 <script>
 export default {
-    
+    props: ['name', 'price', 'index'],
+    methods: {
+        addToCartClicked(){
+            this.$emit('addToCartClicked', this.index);
+        }
+    }
 }
 </script>
-<style scoped>
-    .product-card {
-        position: static;
-        width: 235px;
-        height: 483px;
-        left: 40px;
-        top: 100px;
-
-        background: #FFFFFF;
-        border: 1px solid #F2F2F2;
-        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.02), 0px 4px 10px rgba(0, 0, 0, 0.02);
-    }
-</style>
