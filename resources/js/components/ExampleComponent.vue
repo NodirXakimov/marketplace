@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-md-2">
-                    <button class="btn btn-sm btn-outline-success mt-3">Add product</button>
+                    <button class="btn btn-sm btn-outline-success mt-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Add product</button>
                 </div>
                 <div class="col-sm-9 col-md-7">
                     <h2>Products</h2>
@@ -23,6 +23,17 @@
                 </div>   
             </div>
         </div>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="container">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Add product</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <create-product></create-product>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -30,6 +41,7 @@
     import MainHeader from './MainHeader.vue'
     import ProductItem from './ProductItem.vue'
     import Cart from './Cart.vue'
+    import CreateProduct from './CreateProduct.vue'
 
     export default {
         data(){
@@ -44,6 +56,7 @@
             'main-header': MainHeader,
             'product-item': ProductItem,
             'cart': Cart,
+            'create-product': CreateProduct,
         },
         methods: {
             clicked(index){
