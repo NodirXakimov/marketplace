@@ -25,7 +25,7 @@ export default {
         createProduct(){
             axios({
                 method:'post',
-                url: '/products',
+                url: 'api/products',
                 data: this.newProduct,
             }).then((data) => {
                 console.log(data.data);

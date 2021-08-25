@@ -69,7 +69,8 @@
         mounted() {
             axios({
                 method:'get',
-                url: '/products',
+                url: 'api/products',
+                headers: { 'Accept': 'application/json' }, 
                 data: {
                     id:'/products'
                 }

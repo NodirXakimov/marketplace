@@ -1922,7 +1922,7 @@ __webpack_require__.r(__webpack_exports__);
     createProduct: function createProduct() {
       axios({
         method: 'post',
-        url: '/products',
+        url: 'api/products',
         data: this.newProduct
       }).then(function (data) {
         console.log(data.data);
@@ -2021,7 +2021,10 @@ __webpack_require__.r(__webpack_exports__);
 
     axios({
       method: 'get',
-      url: '/products',
+      url: 'api/products',
+      headers: {
+        'Accept': 'application/json'
+      },
       data: {
         id: '/products'
       }
