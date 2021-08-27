@@ -31,6 +31,7 @@ export default {
                 console.log(data.data);
             }).catch(err => {
                 console.log(err);
+                alert('An error occured');
             })
         }
     },

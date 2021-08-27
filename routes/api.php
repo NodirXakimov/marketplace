@@ -22,3 +22,4 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
+Route::get('/register', [App\Http\Controllers\Api\AuthController::class, 'register'])->name('register');

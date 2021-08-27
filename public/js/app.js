@@ -1928,6 +1928,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(data.data);
       })["catch"](function (err) {
         console.log(err);
+        alert('An error occured');
       });
     }
   }
