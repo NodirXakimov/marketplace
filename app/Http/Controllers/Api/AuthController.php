@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\LoginUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,9 +16,20 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function login(LoginUserRequest $request)
     {
-        //
+        $user = User::where('email', $request->email)->first();
+        if(!$user || !Hash::check($request->password, $user->password)){
+            return response([
+                'message' => 'Bad credits'
+            ], 401);
+        }
+        $token = $user->createToken('marketplace_token')->plainTextToken;
+        $response =  [
+            'user' => $user,
+            'token' => $token
+        ];
+        return response($response, 201);
     }
 
     /**
@@ -26,9 +38,12 @@ class AuthController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function logout(Request $request)
     {
-        //
+        auth()->user()->currentAccessToken()->delete();
+        return [
+            'message' => 'Logged out'
+        ];
     }
 
     /**
@@ -44,7 +59,12 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
-        return $user;
+        $token = $user->createToken('marketplace_token')->plainTextToken;
+        $response =  [
+            'user' => $user,
+            'token' => $token
+        ];
+        return response($response, 201);
     }
 
 }

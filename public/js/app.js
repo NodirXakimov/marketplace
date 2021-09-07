@@ -1920,12 +1920,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     createProduct: function createProduct() {
+      var _this = this;
+
       axios({
         method: 'post',
         url: 'api/products',
-        data: this.newProduct
+        data: this.newProduct,
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': "Bearer 1|98ZtUlpNFxC4Bc41vlJuzWNJlTVf1SDXpDuiKqAm"
+        }
       }).then(function (data) {
         console.log(data.data);
+
+        _this.$emit("newItemAdded", data.data);
       })["catch"](function (err) {
         console.log(err);
         alert('An error occured');
@@ -2015,6 +2023,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     cartCleared: function cartCleared() {
       this.selectedProducts = [];
+    },
+    newItemAdded: function newItemAdded(data) {
+      this.products.push(data);
     }
   },
   mounted: function mounted() {
@@ -38174,7 +38185,9 @@ var render = function() {
             _c(
               "div",
               { staticClass: "offcanvas-body" },
-              [_c("create-product")],
+              [
+                _c("create-product", { on: { newItemAdded: _vm.newItemAdded } })
+              ],
               1
             )
           ])

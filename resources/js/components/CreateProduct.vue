@@ -27,8 +27,13 @@ export default {
                 method:'post',
                 url: 'api/products',
                 data: this.newProduct,
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer 1|98ZtUlpNFxC4Bc41vlJuzWNJlTVf1SDXpDuiKqAm` 
+                } 
             }).then((data) => {
                 console.log(data.data);
+                this.$emit("newItemAdded", data.data)
             }).catch(err => {
                 console.log(err);
                 alert('An error occured');

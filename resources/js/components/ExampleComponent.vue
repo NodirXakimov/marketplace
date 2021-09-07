@@ -30,7 +30,7 @@
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <create-product></create-product>
+                    <create-product @newItemAdded="newItemAdded"></create-product>
                 </div>
             </div>
         </div>
@@ -64,13 +64,18 @@
             },
             cartCleared(){
                 this.selectedProducts = [];
+            },
+            newItemAdded(data){
+                this.products.push(data)
             }
         },
         mounted() {
             axios({
                 method:'get',
                 url: 'api/products',
-                headers: { 'Accept': 'application/json' }, 
+                headers: { 
+                    'Accept': 'application/json',
+                    }, 
                 data: {
                     id:'/products'
                 }
