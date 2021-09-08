@@ -2008,7 +2008,8 @@ __webpack_require__.r(__webpack_exports__);
       number: 10,
       productName: '',
       products: [],
-      selectedProducts: []
+      selectedProducts: [],
+      loggedIn: false
     };
   },
   components: {
@@ -2088,7 +2089,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['loggedIn'],
+  data: function data() {
+    return {
+      loginUser: {
+        email: '',
+        password: ''
+      }
+    };
+  },
+  methods: {
+    login: function login() {
+      console.log(this.loginUser);
+    }
+  }
+});
 
 /***/ }),
 
@@ -38125,7 +38181,7 @@ var render = function() {
     "div",
     { staticClass: "container-fluid" },
     [
-      _c("main-header"),
+      _c("main-header", { attrs: { loggedIn: _vm.loggedIn } }),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
@@ -38264,14 +38320,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+  return _c("div", [
+    _c(
       "nav",
       { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
       [
@@ -38280,73 +38330,277 @@ var staticRenderFns = [
             _vm._v("Quramiz")
           ]),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "navbar-toggler",
-              attrs: {
-                type: "button",
-                "data-bs-toggle": "collapse",
-                "data-bs-target": "#navbarNav",
-                "aria-controls": "navbarNav",
-                "aria-expanded": "false",
-                "aria-label": "Toggle navigation"
-              }
-            },
-            [_c("span", { staticClass: "navbar-toggler-icon" })]
-          ),
+          _vm._m(0),
           _vm._v(" "),
           _c(
             "div",
             {
-              staticClass: "collapse navbar-collapse",
+              staticClass: "collapse navbar-collapse justify-content-around",
               attrs: { id: "navbarNav" }
             },
             [
-              _c("ul", { staticClass: "navbar-nav" }, [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link active",
-                      attrs: { "aria-current": "page", href: "#" }
-                    },
-                    [_vm._v("Home")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Features")
+              _vm._m(1),
+              _vm._v(" "),
+              _vm.loggedIn
+                ? _c("ul", { staticClass: "navbar-nav" }, [_vm._m(2)])
+                : _c("ul", { staticClass: "navbar-nav" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _vm._m(4)
                   ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Pricing")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link disabled",
-                      attrs: {
-                        href: "#",
-                        tabindex: "-1",
-                        "aria-disabled": "true"
-                      }
-                    },
-                    [_vm._v("Disabled")]
-                  )
-                ])
-              ])
             ]
           )
         ])
       ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "offcanvas offcanvas-end",
+        attrs: {
+          tabindex: "-1",
+          id: "loginCanvas",
+          "aria-labelledby": "offcanvasRightLabel"
+        }
+      },
+      [
+        _vm._m(5),
+        _vm._v(" "),
+        _c("div", { staticClass: "offcanvas-body" }, [
+          _c("div", { staticClass: "mb-3" }, [
+            _c(
+              "label",
+              { staticClass: "form-label", attrs: { for: "email" } },
+              [_vm._v("Email")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.loginUser.email,
+                  expression: "loginUser.email"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "email", id: "email", placeholder: "Email" },
+              domProps: { value: _vm.loginUser.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.loginUser, "email", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c(
+              "label",
+              { staticClass: "form-label", attrs: { for: "password" } },
+              [_vm._v("Password")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.loginUser.password,
+                  expression: "loginUser.password"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "password",
+                id: "password",
+                placeholder: "Password"
+              },
+              domProps: { value: _vm.loginUser.password },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.loginUser, "password", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "mt-3 btn btn-sm btn-outline-success",
+              on: { click: _vm.login }
+            },
+            [_vm._v("Login")]
+          )
+        ])
+      ]
     )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-bs-toggle": "collapse",
+          "data-bs-target": "#navbarNav",
+          "aria-controls": "navbarNav",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "navbar-nav" }, [
+      _c("li", { staticClass: "nav-item" }, [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link active",
+            attrs: { "aria-current": "page", href: "#" }
+          },
+          [_vm._v("Home")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+          _vm._v("Features")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+          _vm._v("Pricing")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item text-right" }, [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link disabled",
+            attrs: { href: "#", tabindex: "-1", "aria-disabled": "true" }
+          },
+          [_vm._v("Disabled")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link dropdown-toggle",
+          attrs: {
+            href: "#",
+            id: "userDropdown",
+            role: "button",
+            "data-bs-toggle": "dropdown",
+            "aria-expanded": "false"
+          }
+        },
+        [
+          _vm._v(
+            "\n                            Nodir\n                        "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        {
+          staticClass: "dropdown-menu",
+          attrs: { "aria-labelledby": "userDropdown" }
+        },
+        [
+          _c("li", [
+            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _vm._v("Action")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _vm._v("Another action")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [_c("hr", { staticClass: "dropdown-divider" })])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link",
+          attrs: {
+            href: "#",
+            type: "button",
+            "data-bs-toggle": "offcanvas",
+            "data-bs-target": "#loginCanvas",
+            "aria-controls": "loginCanvas"
+          }
+        },
+        [_vm._v("Login")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _vm._v("Register")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "offcanvas-header" }, [
+      _c("h5", { attrs: { id: "offcanvasRightLabel" } }, [_vm._v("Login")]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close text-reset",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "offcanvas",
+          "aria-label": "Close"
+        }
+      })
+    ])
   }
 ]
 render._withStripped = true

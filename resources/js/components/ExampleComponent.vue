@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <main-header></main-header>
+        <main-header :loggedIn="loggedIn"></main-header>
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-md-2">
@@ -50,6 +50,7 @@
                 productName: '',
                 products: [],
                 selectedProducts: [],
+                loggedIn: false
             }
         },
         components: {
