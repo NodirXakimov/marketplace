@@ -77,7 +77,20 @@ export default {
     },
     methods: {
         login(){
-            console.log(this.loginUser)
+            console.log(JSON.stringify(this.loginUser))
+            axios({
+                method:'post',
+                url: 'api/login',
+                headers: {
+                     'Accept': 'application/json',
+                     'Content-Type': 'application/json',
+                },
+                data: JSON.stringify(this.loginUser)
+            }).then(data => {
+                console.log(data.data.token)
+            }).catch(err => {
+                console.log(err)
+            })
         }
     },
 }
