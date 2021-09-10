@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <main-header :loggedIn="loggedIn"></main-header>
+        <main-header :loggedIn="loggedIn" @storeToken="storeToken"></main-header>
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-md-2">
@@ -42,6 +42,7 @@
     import ProductItem from './ProductItem.vue'
     import Cart from './Cart.vue'
     import CreateProduct from './CreateProduct.vue'
+    import Swal from 'sweetalert2'
 
     export default {
         data(){
@@ -50,7 +51,8 @@
                 productName: '',
                 products: [],
                 selectedProducts: [],
-                loggedIn: false
+                loggedIn: false,
+                token: ''
             }
         },
         components: {
@@ -65,9 +67,23 @@
             },
             cartCleared(){
                 this.selectedProducts = [];
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Cart has been cleared',
+                    showConfirmButton: false,
+                    backdrop: false,
+                    toast: true,
+                    timer: 2500
+                })
             },
             newItemAdded(data){
                 this.products.push(data)
+            },
+            storeToken(data){
+                alert(data)
+                this.loggedIn = true;
+                this.token = data;
             }
         },
         mounted() {

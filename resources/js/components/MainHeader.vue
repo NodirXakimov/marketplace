@@ -65,6 +65,7 @@
         </div>
 </template>
 <script>
+
 export default {
     props: ['loggedIn'],
     data(){
@@ -88,6 +89,7 @@ export default {
                 data: JSON.stringify(this.loginUser)
             }).then(data => {
                 console.log(data.data.token)
+                this.$emit('storeToken', data.data.token)
             }).catch(err => {
                 console.log(err)
             })
