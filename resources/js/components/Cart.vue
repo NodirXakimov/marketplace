@@ -7,10 +7,11 @@
         </div>
         <div class="card-body">
             <ul>
-                <li v-for="(product, index) in products" 
+                <li v-for="(product, index) in products"
                 :key="index"
                 >
                    {{ product.name }} <span class="text-danger">{{ product.price }} $</span>
+                    <button class="m-1 btn btn-danger" @click="deleteSingleItem(index)">Delete</button>
                 </li>
             </ul>
         </div>
@@ -27,6 +28,11 @@ export default {
         cartCleared(){
             this.$emit('cartCleared');
         },
+        deleteSingleItem(index){
+            // alert(index)
+            this.products.splice(index, 1)
+
+        }
     },
     computed: {
         totalPrice(){

@@ -6,21 +6,21 @@
                 <div class="col-sm-3 col-md-2">
                     <button class="btn btn-sm btn-outline-success mt-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Add product</button>
                 </div>
-                <div class="col-sm-9 col-md-7">
+                <div class="col-sm-9 col-md-5">
                     <h2>Products</h2>
-                    <product-item 
-                    v-for="(product, index) in products" 
-                    :key="index" 
-                    :name="product.name" 
+                    <product-item
+                    v-for="(product, index) in products"
+                    :key="index"
+                    :name="product.name"
                     :price="product.price"
                     :index="index"
                     @addToCartClicked="clicked"
                     ></product-item>
                 </div>
-                <div class="col-sm-12 col-md-3">
-                    <h2>Cart</h2> 
-                    <cart :products="selectedProducts" @cartCleared="cartCleared"></cart>   
-                </div>   
+                <div class="col-sm-12 col-md-5">
+                    <h2>Cart</h2>
+                    <cart :products="selectedProducts" @cartCleared="cartCleared"></cart>
+                </div>
             </div>
         </div>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -90,9 +90,9 @@
             axios({
                 method:'get',
                 url: 'api/products',
-                headers: { 
+                headers: {
                     'Accept': 'application/json',
-                    }, 
+                    },
                 data: {
                     id:'/products'
                 }

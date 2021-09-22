@@ -1867,11 +1867,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['products'],
   methods: {
     cartCleared: function cartCleared() {
       this.$emit('cartCleared');
+    },
+    deleteSingleItem: function deleteSingleItem(index) {
+      // alert(index)
+      this.products.splice(index, 1);
     }
   },
   computed: {
@@ -41197,7 +41202,20 @@ var render = function() {
             _vm._v("\n               " + _vm._s(product.name) + " "),
             _c("span", { staticClass: "text-danger" }, [
               _vm._v(_vm._s(product.price) + " $")
-            ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "m-1 btn btn-danger",
+                on: {
+                  click: function($event) {
+                    return _vm.deleteSingleItem(index)
+                  }
+                }
+              },
+              [_vm._v("Delete")]
+            )
           ])
         }),
         0
@@ -41358,7 +41376,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-sm-9 col-md-7" },
+            { staticClass: "col-sm-9 col-md-5" },
             [
               _c("h2", [_vm._v("Products")]),
               _vm._v(" "),
@@ -41379,7 +41397,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-sm-12 col-md-3" },
+            { staticClass: "col-sm-12 col-md-5" },
             [
               _c("h2", [_vm._v("Cart")]),
               _vm._v(" "),
